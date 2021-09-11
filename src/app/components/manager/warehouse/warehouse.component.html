@@ -1,0 +1,30 @@
+<div class="product">
+  <div class="" style="display: flex;justify-content: space-between; margin: 1%">
+    <div style="display: flex; width: 36%;">
+      <label for="filter" style="min-width: 189px;margin-top: 2%;">Tìm kiếm nhanh tên phụ tùng: </label>
+      <input   style="    margin: 0 1% 0 1%;"name="form-control" class="form-control" type="text" [(ngModel)]="filterBySub" (keyup)="filter()" placeholder="Nhập tên phụ tùng">
+        <button class="btn btn-primary" style="margin-left: 1%">
+          <i class="fas fa-search"></i>
+        </button>
+    </div>
+  </div>
+    
+  <table class="table">
+      <thead>
+        <tr style="text-align: center;">
+          <th scope="col">STT</th>
+          <th scope="col">Tên phụ tùng</th>
+          <th scope="col" style="width:10%">Hình phụ tùng</th>
+          <th scope="col">Số lượng phụ tùng hiện có</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let row of filtered;let i= index;" style="text-align: center;">
+              <td>{{i+1}}</td>
+              <td>{{row.name_product}}</td>
+              <td><img src="{{row.img}}" alt="{{row.name_product}}.jpg" width="100%"/></td>
+              <td>{{row.quantity}}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>

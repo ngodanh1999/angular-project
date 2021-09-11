@@ -1,0 +1,35 @@
+<div class="modal-dialog"> 
+    <div class="modal-content"> 
+      <div class="modal-header">
+        <h3 class="modal-title" >{{title}}</h3>
+        <button type="button" class="btn-close" (click)="onNoClick()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div [formGroup]="formSupplier" style="text-align: center;">
+              <div class="mb-3 flex">
+                <label for="exampleInputEmail1" class="form-label">Tên công ty cung cấp</label>
+                <input type="text" matInput formControlName="name" class="form-control"   >
+              </div>
+              <div class="mb-3 flex">
+                  <label for="exampleInputEmail1" class="form-label">Email</label>
+                  <input type="text" formControlName="email" class="form-control"  >
+              </div>
+              <div class="mb-3 flex">
+                  <label for="exampleInputEmail1" class="form-label">SĐT</label>
+                  <input type="email" formControlName="phone" class="form-control" >
+              </div>
+              <div class="mb-3 flex">
+                  <label for="exampleInputEmail1" class="form-label">Địa chỉ</label>
+                  <input type="text" formControlName="address" class="form-control"  >
+          </div>
+        </div>
+      </div>
+      <div mat-dialog-actions>
+        <button type="button" (click)="onNoClick()" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       
+        <button type="button" style="margin-left: auto;" (click)="postSupplierDetails()" *ngIf="btnAdd" class="btn btn-primary">Add</button>
+        <button type="button" style="margin-left: auto;" (click)="updateSupplier()" *ngIf="btnUpdate"  class="btn btn-primary">Update</button>
+        
+      <div mat-dialog-actions>
+    </div>
+</div>

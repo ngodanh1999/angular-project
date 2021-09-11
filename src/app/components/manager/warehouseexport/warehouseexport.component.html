@@ -1,0 +1,58 @@
+<div class="product">
+    <div class="" style="display: flex;justify-content: space-between; margin: 1%">
+      <div style="display: flex; width: 36%;">
+        <label for="filter" style="min-width: 189px;margin-top: 2%;">Tìm kiếm nhanh mã đơn hàng: </label>
+        <input   style="    margin: 0 1% 0 1%;"name="form-control" class="form-control" type="text" [(ngModel)]="filterBySub" (keyup)="filter()" placeholder="Nhập mã đơn hàng">
+        <button class="btn btn-primary" style="margin-left: 1%">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <button class="btn btn-success" (click)="openDialog()" style="margin-right: 4%;">
+        <i class="fas fa-plus-square"></i> Tạo mới đơn xuất hàng
+      </button>
+    </div>
+      
+    <table class="table">
+        <thead>
+          <tr style="text-align: center;">
+            <th scope="col">Mã đơn hàng</th>
+            <th scope="col" >Nội dung đơn hàng</th>
+            <th scope="col" >Người nhập</th>
+            <th scope="col" >Ghi chú</th>
+            <th scope="col" >Ngày tạo</th>
+            <th scope="col" >Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of filtered" style="text-align: center;">
+                <td>{{row.id}}</td>
+                <!-- <th>{{row.menu}}</th>
+                <td>{{row.submenu}}</td> -->
+                <td>{{row.content_order}}</td>
+                <td>{{row.user_export}}</td>
+                <td>{{row.note}}</td>
+                <td>{{row.created_date}}</td>
+                <td>
+                  <button class="btn btn-warning mx-3" (click)="openDialogView(row)" >
+                    <i class="fas fa-eye"></i>
+                  </button>
+                    <button class="btn btn-info " (click)="openDialogEdit(row)" >
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-danger mx-3" (click)="deleteWarehouseexport(row)">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+            <!-- <mat-paginator #paginator
+            [length]="length"
+            [pageIndex]="pageIndex"
+            [pageSize]="pageSize"
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            (page)="pageEvent = getAllEmployee($event)">
+          </mat-paginator>  -->
+        </tbody>
+      </table>
+    <!-- Modal -->
+      
+    </div>

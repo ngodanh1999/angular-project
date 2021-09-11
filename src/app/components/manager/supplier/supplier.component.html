@@ -1,0 +1,56 @@
+<div class="product">
+    <div class="" style="display: flex;justify-content: space-between; margin: 1%">
+      <div style="display: flex;width: 36%;">
+        <label for="filter" style="    min-width: 48%;margin-top: 2%;">Tìm kiếm nhanh tên nhà cung cấp: </label>
+        <input style="    margin: 0 1% 0 1%;" class="form-control" type="text" [(ngModel)]="filterBySub" (keyup)="filter()" placeholder="Tên phụ tùng">
+        <button class="btn btn-primary" style="margin-left: 1%">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <button class="btn btn-success" (click)="openDialog()" style="margin-right: 4%;">
+        <i class="fas fa-plus-square"></i> Thêm nhà cung cấp mới
+      </button>
+    </div>
+      
+    <table class="table">
+        <thead>
+          <tr style="text-align: center;">
+            <th scope="col">Mã nhà cung cấp</th>
+            <!-- <th scope="col">menu</th>
+            <th scope="col">submenu</th> -->
+            <th scope="col" >Tên nhà cung cấp</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Địa chỉ</th>
+            <th scope="col">Số điện thoại</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of filtered" style="text-align: center;">
+                <td>{{row.id}}</td>
+                <td>{{row.name}}</td>
+                <td>{{row.email}}</td>
+                <td>{{row.address}}</td>
+                <td>{{row.phone}}</td>
+                <td>
+                    <button class="btn btn-info" (click)="openDialogEdit(row)" >
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-danger mx-3" (click)="deleteSupplier(row)">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+            <!-- <mat-paginator #paginator
+            [length]="length"
+            [pageIndex]="pageIndex"
+            [pageSize]="pageSize"
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            (page)="pageEvent = getAllEmployee($event)">
+          </mat-paginator>  -->
+        </tbody>
+      </table>
+    
+    <!-- Modal -->
+      
+    </div>

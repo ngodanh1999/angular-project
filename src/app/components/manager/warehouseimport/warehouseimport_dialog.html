@@ -1,0 +1,53 @@
+<div class="modal-dialog"> 
+    <div class="modal-content"> 
+      <div class="modal-header">
+        <h3 class="modal-title" >{{title}}</h3>
+        <button type="button" class="btn-close" (click)="onNoClick()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="print-section">
+        <ul class="tiltetable">
+            <li>Mã đơn hàng:    {{id}}</li>
+            <li>Người nhập đơn: {{user_import}}</li>
+            <li>Nội dung nhập hàng: {{content_order}}</li>
+            <li>Ghi chú đơn nhập hàng:  {{note}}</li>
+            <li>Ngày tạo:   {{created_date}}</li>
+        </ul>
+            <table class="table table-bordered">
+                <thead>
+                  <tr >
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên phụ tùng</th>
+                    <th scope="col" style="width: 24%;">Công ty cung cấp</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Đơn giá</th>
+                    <th scope="col">Tổng tiền</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of products">
+                    <th scope="row">{{item.id_product}}</th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.supplier}}</td>
+                    <td>{{item.quantity}} </td>
+                    <td>{{item.price}} VNĐ</td>
+                    <td>{{item.Total}}.000 VNĐ</td>
+                  </tr>
+                  <tr>
+                    <th colspan="5">Tổng tiền:</th>
+                    <td >{{Total_Order}}.000 VNĐ</td>
+                  </tr>
+                </tbody>
+            </table>
+            <div class="kyten">
+              <p> Người xuất hóa đơn</p>
+              <p style="margin-left: 6%;">(ghi rõ họ và tên)</p>
+            </div>
+      </div>
+      <div mat-dialog-actions style="justify-content: flex-end;">
+        <button type="button" class="btn btn-success"  style="margin-right: 2%;" printTitle="Phụ Tùng ô tô Giá rẻ" [useExistingCss]="true" printSectionId="print-section" ngxPrint>
+            <i class="fas fa-print"></i>
+            In</button> 
+        <button type="button" (click)="onNoClick()" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
+        <div mat-dialog-actions>
+    </div>
+</div>

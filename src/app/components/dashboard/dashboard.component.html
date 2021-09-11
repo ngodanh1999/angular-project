@@ -1,0 +1,23 @@
+<!-- <div class="sb-nav-fixed" >
+    <
+    <mat-drawer-container class="example-container">
+      <mat-drawer mode="side" opened >
+        
+      </mat-drawer>
+      <mat-drawer-content>
+        
+      </mat-drawer-content>
+</mat-drawer-container>
+ -->
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+        <app-sidebar ></app-sidebar>
+      </div>
+        <div class="col py-3">
+          <router-outlet></router-outlet>
+      </div>
+  </div>
+  <app-footer></app-footer>
+</div>

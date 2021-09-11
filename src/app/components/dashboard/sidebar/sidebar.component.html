@@ -1,0 +1,54 @@
+    <nav class="sb-sidenav accordion sb-sidenav-dark" >
+        <div class="sb-sidenav-menu">
+          <a class="navbar-brand pt-0" routerLinkActive="active" [routerLink]="['home']" style="text-align: center;">
+      <img src="../../../../assets/img/logo.png" class="navbar-brand-img" alt="..." style="    width: 42%;border-radius: 50%;">
+    </a>
+            <div class="nav">
+                
+                <div class="sb-sidenav-menu-heading">Thông tin</div>
+                <a class="nav-link"  [routerLink]="['product']">
+                    <div class="sb-nav-link-icon">
+                      <i class="fas fa-database"></i>
+                    </div>
+                    Sản phẩm
+                </a>
+                <a class="nav-link"   [routerLink]="['supplier']" >
+                    <div class="sb-nav-link-icon">
+                      <i class="fas fa-parachute-box"></i>
+                    </div>
+                    Nhà cung cấp
+                </a>
+                <div class="sb-sidenav-menu-heading">Quản lý nhập liệu</div>
+                <a class="nav-link" [routerLink]="['warehouseimport']">
+                    <div class="sb-nav-link-icon"><i class="fas fa-pallet"></i></div>
+                    Dữ liệu nhập hàng
+                </a>
+                <a class="nav-link" [routerLink]="['warehouseexport']">
+                    <div class="sb-nav-link-icon"><i class="fas fa-shipping-fast"></i></div>
+                    Dữ liệu xuất hàng
+                </a>
+                <a class="nav-link"  [routerLink]="['warehouse']">
+                    <div class="sb-nav-link-icon"><i class="fas fa-warehouse"></i></div>
+                    Dữ liệu Kho hiện tại
+                </a>
+                <div class="sb-sidenav-menu-heading">Thống kê số liệu</div>
+                <a class="nav-link" [routerLink]="['statistical']">
+                    <div class="sb-nav-link-icon"><i class="fas fa-file-contract"></i></div>
+                    Thống kê nhập xuất tồn đầu
+                </a>
+                <a class="nav-link" [routerLink]="['profit']">
+                    <div class="sb-nav-link-icon"><i class="fas fa-file-signature"></i></div>
+                    Thống kê doanh thu phụ tùng
+                </a>
+                <div class="sb-sidenav-menu-heading">Quản trị Admin</div>
+                <a class="nav-link" [routerLink]="['register']">
+                    <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                    Thêm thành viên quản lý
+                </a>
+            </div>
+        </div>
+        <div class="sb-sidenav-footer">
+            <div class="small">Logged in as: Admin</div>
+            Copyright&#169;warehouse - THANHDANH
+        </div>
+    </nav>

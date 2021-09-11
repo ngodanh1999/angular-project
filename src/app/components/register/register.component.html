@@ -1,0 +1,46 @@
+<div class="wrapper fadeInDown">
+  <h3 style="color: blueviolet;
+        font-size: 25px;
+        font-weight: bold;">THÊM TÀI KHOẢN QUẢN LÝ MỚI</h3>
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        
+      </div>
+  
+      <!-- Login Form -->
+      <form [formGroup]="register">
+        
+        <div class="infor-user" >
+          <label>Thông tin user mới:</label>
+          <input type="text" class="fadeIn second" placeholder="Nhập họ tên" formControlName="name">
+          <input type="text" class="fadeIn third"  placeholder="Nhập Email" formControlName="email">
+          <input type="text" class="fadeIn third"  placeholder="Nhập số điện thoại" formControlName="username">
+          <input type="text" class="fadeIn third"  placeholder="Nhập địa chỉ" formControlName="username">
+          <p></p>
+        </div>
+        
+        <div class="infor-user" >
+          <label style="width: 74%;">Thông tin đăng nhập user mới:</label>
+          <input type="text" class="fadeIn third"  placeholder="Nhập tên đăng nhập" formControlName="username">
+          <input type="password" class="inputPassword fadeIn"  placeholder="Nhập mật khẩu" formControlName="password">
+          <input type="password" class="inputPassword fadeIn"  placeholder="Nhập lại mật khẩu" formControlName="password">
+          <p></p>
+        </div>
+        <div style="display: flex;    margin: -7% 0% -1% 36%;align-items: center;">
+         <p style="    padding-right: 2%;">Role Admin:</p>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        </div>
+        
+        <div class="button">
+            <input (click)="RegisterSubmit()" [disabled]="register.invalid" type="submit" class="fadeIn fourth" value="Đăng ký Ngayy">
+        </div>
+      </form>
+  
+    </div>
+  </div>

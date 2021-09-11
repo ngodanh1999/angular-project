@@ -1,0 +1,76 @@
+<div class="product">
+<div class="" style="display: flex;justify-content: space-between; margin: 1%">
+  <div style="display: flex;width: 59%;">
+    <label for="filter" style="    min-width: 23%;margin-top: 1%;">Tìm kiếm nhanh phù tùng xe: </label>
+    <input class="form-control" onfocus="this.value=''"   list="productlistOptions1"  placeholder="Nước sản xuất ..." >
+      <datalist id="productlistOptions1" >
+          <ul *ngFor="let product of getGroupProductData">
+              <li >
+                <option value="{{product.name}}" >
+              </li>
+          </ul>
+       </datalist>
+    <input class="form-control" onfocus="this.value=''"  style="margin: 0% 2% 0% 2%;"  list="productlistOptions"  placeholder="Hãng xe ..." >
+      <datalist id="productlistOptions" >
+          <ul *ngFor="let product of getSubGroupProductData">
+              <li >
+                <option value="{{product.name}}" >
+              </li>
+          </ul>
+        </datalist>
+    <input class="form-control" type="text" [(ngModel)]="filterBySub" (keyup)="filter()" placeholder="Tên phụ tùng">
+    <button class="btn btn-primary" style="margin-left: 1%">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+  <button class="btn btn-success" (click)="openDialog()" style="margin-right: 4%;">
+    <i class="fas fa-plus-square"></i> Tạo mới phụ tùng
+  </button> 
+</div>
+  
+<table class="table">
+    <thead>
+      <tr style="text-align: center;">
+        <th scope="col">Mã phụ tùng</th>
+        <th scope="col">Hình ảnh phụ tùng</th>
+        <th scope="col" style="width:12%">Tên phụ tùng</th>
+        <th scope="col">Giá thị trường</th>
+        <th scope="col" style="width:30%">Mô tả phụ tùng</th>
+        <th scope="col">Ghi chú</th>
+        <th scope="col" style="width:10%">Xuất Sứ</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of filtered" style="text-align: center;">
+            <td>{{row.id}}</td>
+            <td style="width:0"><img src="{{row.image_product_src}}" alt="{{row.name_products}}.jpg" width="100%"/></td>
+            <td>{{row.name_products}}</td>
+            <td>{{row.price_product}}</td>
+            <td>{{row.description_product}}</td>
+            <td>{{row.note_products}}</td>
+            
+            <td>{{row.made_product}}</td>
+            
+            <td>
+                <button class="btn btn-info" (click)="openDialogEdit(row)" >
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn btn-danger mx-3" (click)="deleteEmployee(row)">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+            </td>
+        </tr>
+        <!-- <mat-paginator #paginator
+        [length]="length"
+        [pageIndex]="pageIndex"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        (page)="pageEvent = getAllEmployee($event)">
+      </mat-paginator>  -->
+    </tbody>
+  </table>
+
+<!-- Modal -->
+  
+</div>

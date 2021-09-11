@@ -1,0 +1,16 @@
+.Coupleinput{
+    display: flex;
+}
+.modal-title{
+font-size: x-large;
+    font-weight: 500;
+    color: darkblue;
+    font-style: inherit;
+}
+.flex{
+    display: flex;
+    align-items: center
+}
+.flex label{
+min-width: 139px;
+}

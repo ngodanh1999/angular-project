@@ -1,0 +1,90 @@
+    <div class="modal-header">
+        <h3 class="modal-title" >{{title}}</h3>
+        <button type="button" class="btn-close" (click)="onNoClick()" aria-label="Close"></button>
+    </div>
+      <mat-dialog-content class="mat-typography" id="print-section">
+      <div class="modal-body">
+        <div [formGroup]="formValue" style="text-align: center;">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nội dung đơn nhập</label>
+            <input type="text" matInput formControlName="content_order" class="form-control"   >
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Ghi chú đơn nhập</label>
+            <textarea type="text" matInput formControlName="note" class="form-control"></textarea>
+        </div>
+        <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+              <tr >
+                <th scope="col">STT</th>
+                <th scope="col">Tên phụ tùng</th>
+                <th scope="col" >Công ty cung cấp</th>
+                <th scope="col">Đơn giá</th>
+                <th scope="col-5">Số lượng</th>
+                <th scope="col">Tổng tiền</th>
+                <th scope="col">Xóa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="inputProduct" *ngFor="let item of getproduct; let i = index;">
+                <th scope="row">{{i + 1}}</th>
+                <td >
+                <input class="form-control" onfocus="this.value=''"  formControlName="name_product{{i+1}}"  (change)="addspace()" list="productlistOptions"  placeholder="Type to search..." >
+                <datalist id="productlistOptions" >
+                    <ul *ngFor="let product of getproducts">
+                        <li >
+                          <option value="{{product.name_products}}" >
+                        </li>
+                    </ul>
+                </datalist>
+                </td>
+                <td>
+                  <input class="form-control"  list="supllierlistOptions" formControlName="name_supplier{{i+1}}" (change)="savesupplier()" onfocus="this.value=''" placeholder="Type to search...">
+                  <datalist id="supllierlistOptions" >
+                      <ul *ngFor="let supllier of getsupplier">
+                          <li >
+                            <option value="{{supllier.name}}" >
+                          </li>
+                      </ul>
+                  </datalist>
+                </td>
+                <td >
+                  {{price[i]}}  VNĐ
+                </td>
+                <td class="quantity" >
+                  <button type="button" style="color: red;" (click)="square(i)" class="btn btn-light"><i class="fas fa-minus-square"></i></button>
+                  <!-- <input  value="quantity[i]" type="number" onfocus="this.value='0'" formControlName="quantity_product" placeholder="Type to search..."> -->
+                  <div>{{quantity[i]}}</div>
+                  <button type="button" style="color: yellow;" class="btn btn-light"(click)="circle(i)" ><i class="fas fa-plus-circle"></i></button>
+                </td>
+                <!-- <td *ngIf="quantity[i]>1">{{unitprice[i]}}.000 VNĐ</td> -->
+                <td *ngIf="quantity[i]==1">{{unitprice[i]}} VNĐ</td>
+                <td *ngIf="quantity[i]>1">{{unitprice[i]}}.000 VNĐ</td>
+                <td *ngIf="quantity[i]>=1">
+                  <button class="btn btn-danger mx-3" (click)="delete_P_list()">
+                  <i class="fas fa-trash-alt"></i>
+                </button></td>
+                </tr>
+                <th colspan="5">Tổng tiền thanh toán:</th>
+                <td>{{Totalmoney_products}}.000 VNĐ</td>
+                <!-- <td >{{Total_Order}}</td> -->
+                </tbody>
+            </table>
+          </div>
+      </div>
+      </div>
+      <div class="kyten">
+        <p> Người xuất hóa đơn</p>
+        <p style="margin-left: 6%;">(ghi rõ họ và tên)</p>
+      </div>
+    </mat-dialog-content>
+    <div mat-dialog-actions style="justify-content: flex-end;">
+      <button type="button" class="btn btn-info"  style="margin-right: 2%;" (click)="postWareImportDetails()" >
+        <i class="fas fa-save"></i>
+        Lưu </button> 
+        <button type="button" class="btn btn-success"  style="margin-right: 2%;" (click)="postWareImportDetails()" printTitle="Phụ Tùng ô tô Giá rẻ" [useExistingCss]="true" printSectionId="print-section" ngxPrint>
+            <i class="fas fa-print"></i>
+            Lưu và In</button> 
+        <button type="button" (click)="onNoClick()" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
+    <div mat-dialog-actions>
